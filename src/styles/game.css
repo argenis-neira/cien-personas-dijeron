@@ -1,0 +1,368 @@
+@import url("https://fonts.googleapis.com/css2?family=Spicy+Rice&display=swap");
+
+.custom-body {
+  width: 100% !important;
+  height: 100vh;
+}
+.custom-body {
+  position: absolute;
+  z-index: 0;
+  background: linear-gradient(
+    to right,
+    #301916 0%,
+    #301916 5%,
+    #8a6552 5%,
+    #8a6552 10%,
+    #462521 10%,
+    #462521 15%,
+    #301916 15%,
+    #301916 20%,
+    #462521 20%,
+    #462521 25%,
+    #8a6552 25%,
+    #8a6552 30%,
+    #301916 30%,
+    #301916 35%,
+    #8a6552 35%,
+    #8a6552 40%,
+    #462521 40%,
+    #462521 45%,
+    #301916 45%,
+    #301916 50%,
+    #8a6552 50%,
+    #8a6552 55%,
+    #462521 55%,
+    #462521 60%,
+    #301916 60%,
+    #301916 65%,
+    #8a6552 65%,
+    #8a6552 70%,
+    #301916 70%,
+    #301916 75%,
+    #462521 75%,
+    #462521 80%,
+    #301916 80%,
+    #301916 85%,
+    #8a6552 85%,
+    #8a6552 90%,
+    #462521 90%,
+    #462521 95%,
+    #301916 95%,
+    #301916 100%
+  );
+  text-align: center;
+}
+@keyframes sway {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: ease-in-out;
+  }
+  10% {
+    transform: rotate(-12deg);
+    animation-timing-function: ease-in-out;
+  }
+  30% {
+    transform: rotate(8deg);
+    animation-timing-function: ease-in-out;
+  }
+  45% {
+    transform: rotate(-4deg);
+    animation-timing-function: ease-in-out;
+  }
+  60% {
+    transform: rotate(2deg);
+    animation-timing-function: ease-in-out;
+  }
+  70% {
+    transform: rotate(-0.1deg);
+    animation-timing-function: ease-in-out;
+  }
+  75% {
+    transform: rotate(0.05deg);
+    animation-timing-function: ease-in-out;
+  }
+  80% {
+    transform: rotate(0);
+    animation-timing-function: ease-in-out;
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.example {
+  position: relative;
+  display: inline-block;
+  font-family: "Spicy Rice", cursive;
+  line-height: 1;
+  font-size: 34px;
+  padding: 32px 32px;
+  margin: 34px 0;
+  animation: sway 5s linear infinite;
+  transform-origin: 50% -32px;
+  background: linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
+    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
+    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
+    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
+    radial-gradient(
+      circle at 100% 100%,
+      #ca2e55 0%,
+      #ca2e55 44%,
+      #fff 46%,
+      #fff 55%,
+      #ca2e55 57%,
+      #ca2e55 70%,
+      transparent 72%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 0 100%,
+      #ca2e55 0%,
+      #ca2e55 44%,
+      #fff 46%,
+      #fff 55%,
+      #ca2e55 57%,
+      #ca2e55 70%,
+      transparent 72%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 0 0,
+      #ca2e55 0%,
+      #ca2e55 44%,
+      #fff 46%,
+      #fff 55%,
+      #ca2e55 57%,
+      #ca2e55 70%,
+      transparent 72%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 100% 0,
+      #ca2e55 0%,
+      #ca2e55 44%,
+      #fff 46%,
+      #fff 55%,
+      #ca2e55 57%,
+      #ca2e55 70%,
+      transparent 72%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to top,
+      #ca2e55 0%,
+      #ca2e55 63%,
+      #fff 65%,
+      #fff 78%,
+      #ca2e55 80%,
+      #ca2e55 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #ca2e55 0%,
+      #ca2e55 63%,
+      #fff 65%,
+      #fff 78%,
+      #ca2e55 80%,
+      #ca2e55 100%
+    ),
+    linear-gradient(
+      to left,
+      #ca2e55 0%,
+      #ca2e55 63%,
+      #fff 65%,
+      #fff 78%,
+      #ca2e55 80%,
+      #ca2e55 100%
+    ),
+    linear-gradient(
+      to left,
+      #ca2e55 0%,
+      #ca2e55 63%,
+      #fff 65%,
+      #fff 78%,
+      #ca2e55 80%,
+      #ca2e55 100%
+    ),
+    linear-gradient(
+      to right,
+      #ca2e55 0%,
+      #ca2e55 63%,
+      #fff 65%,
+      #fff 78%,
+      #ca2e55 80%,
+      #ca2e55 100%
+    ),
+    linear-gradient(
+      to right,
+      #ca2e55 0%,
+      #ca2e55 63%,
+      #fff 65%,
+      #fff 78%,
+      #ca2e55 80%,
+      #ca2e55 100%
+    ),
+    radial-gradient(
+      circle at 0 50%,
+      transparent 0%,
+      transparent 30%,
+      #ca2e55 32%,
+      #ca2e55 42%,
+      #fff 44%,
+      #fff 48%,
+      #ca2e55 50%,
+      #ca2e55 100%
+    ),
+    radial-gradient(
+      circle at 100% 50%,
+      transparent 0%,
+      transparent 30%,
+      #ca2e55 32%,
+      #ca2e55 42%,
+      #fff 44%,
+      #fff 48%,
+      #ca2e55 50%,
+      #ca2e55 100%
+    ),
+    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%);
+  background-size: 3px 3px, 3px 3px, 3px 3px, 3px 3px, 16px 16px, 16px 16px,
+    16px 16px, 16px 16px, calc(100% - 32px + 4px) 16px,
+    calc(100% - 32px + 4px) 16px, 16px calc(50% - 32px), 16px calc(50% - 32px),
+    16px calc(50% - 32px), 16px calc(50% - 32px), 32px 32px, 32px 32px,
+    calc(100% - 32px + 4px) calc(100% - 32px);
+  background-position: 0 calc(50% - 16px), 100% calc(50% - 16px),
+    0 calc(50% + 16px), 100% calc(50% + 16px), 0 0, 100% 0, 100% 100%, 0 100%,
+    calc(16px - 1px) 0, calc(16px - 1px) 100%, 0 16px, 0 calc(100% - 16px),
+    100% 16px, 100% calc(100% - 16px), 0 50%, 100% 50%, calc(16px - 1px) 16px;
+  background-repeat: no-repeat;
+}
+.example::before {
+  content: "";
+  height: 2px;
+  width: 51%;
+  position: absolute;
+  top: -16px;
+  left: 0;
+  z-index: -1;
+  transform: rotate(-15deg);
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 13%,
+    #ca2e55 15%,
+    #fff 17%,
+    #fff 100%
+  );
+}
+.example::after {
+  content: "";
+  height: 2px;
+  width: 51%;
+  position: absolute;
+  top: -16px;
+  right: 0;
+  z-index: -1;
+  transform: rotate(15deg);
+  background: linear-gradient(
+    to left,
+    transparent 0%,
+    transparent 13%,
+    #ca2e55 15%,
+    #fff 17%,
+    #fff 100%
+  );
+}
+
+.voltear {
+  transform-style: preserve-3d;
+  animation: voltearAnimacion 0.6s;
+}
+
+@keyframes voltearAnimacion {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.sketchy {
+  font-family: "Just Another Hand", cursive;
+  height: 6rem;
+  width: 6rem;
+  padding-top: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  border: 3px solid #333333;
+  font-size: 2.5rem;
+  border-radius: 2% 6% 5% 4% / 1% 1% 2% 4%;
+  text-transform: uppercase;
+  letter-spacing: 0.3ch;
+  background: #ffffff;
+  position: relative;
+
+  &::before {
+    content: "";
+    border: 2px solid #353535;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(2.3deg);
+    border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+  }
+}
+
+.sketchy-opaco {
+  background-color: #666161;
+}
+
+.miDiv {
+  font-family: "Just Another Hand", cursive;
+  color: rgb(71, 92, 185);
+  box-shadow: 0px 0px 5px 0px #333 inset;
+  text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.3);
+  width: 15rem;
+  font-size: 20px;
+  border: 3px solid transparent;
+  background-color: white;
+  background-clip: padding-box;
+  position: relative;
+  border-radius: 10px;
+  padding: 5px 5px;
+}
+
+.miDiv::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  bottom: -6px;
+  left: -6px;
+  right: -6px;
+  z-index: -1;
+  border-radius: 10px;
+  background: linear-gradient(
+    45deg,
+    #ff00f7,
+    #00ffcc,
+    #ff00f7
+  ); /* Degradado de colores neon */
+  animation: glow 2s infinite alternate; /* Efecto de luz con animación */
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px 0px #ff00f7, 0 0 20px 2px #00ffcc, 0 0 30px 4px #ff00f7;
+  }
+  100% {
+    box-shadow: 0 0 20px 0px #ff00f7, 0 0 40px 6px #00ffcc,
+      0 0 60px 12px #ff00f7;
+  }
+}
