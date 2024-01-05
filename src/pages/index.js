@@ -18,7 +18,7 @@ const Database = () => {
         const onSubmit = async values => {
                 console.log('form data', values)
                 //debi enviar los valores como un objecto por cada 3 elementos, y no de manera unica, esto se puede mejorarr despues
-                const response = await axios.post('http://localhost:5000/save', values);
+                const response = await axios.post('https://argenisneira.pythonanywhere.com/save', values);
         }
 
         //initial values
@@ -78,7 +78,7 @@ const Database = () => {
 
         //handle reset
         const resetBuzz = async () => {
-                await axios.get('http://localhost:5000/reset_buzz')
+                await axios.get('https://argenisneira.pythonanywhere.com/reset_buzz')
         }
 
         return <div className="form-style-5">

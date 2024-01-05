@@ -13,7 +13,7 @@ const Game = () => {
 
     const getData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/get_values');
+        const response = await axios.get('https://argenisneira.pythonanywhere.com/get_values');
         // console.log(response.data)
         setValues(response.data.values)
         setFirstBuzz(JSON.parse(response.data.first).usuario)
@@ -43,7 +43,7 @@ const Game = () => {
 
   //handleBuzz
   const handleBuzz = async () => {
-    await axios.post('http://localhost:5000/buzz', { usuario: buzz })
+    await axios.post('https://argenisneira.pythonanywhere.com/buzz', { usuario: buzz })
   }
 
 
