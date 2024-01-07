@@ -14,11 +14,12 @@ const Database = () => {
 
         //useStates
         const [camposExtras, setCamposExtras] = useState([])
+        const [disableWrong, setDisableWrong] = useState(false)
 
         const onSubmit = async values => {
                 console.log('form data', values)
                 //debi enviar los valores como un objecto por cada 3 elementos, y no de manera unica, esto se puede mejorarr despues
-                const response = await axios.post('https://argenisneira.pythonanywhere.com/save', values);
+                await axios.post('https://argenisneira.pythonanywhere.com/save', values);
         }
 
         //initial values
@@ -79,6 +80,11 @@ const Database = () => {
         //handle reset
         const resetBuzz = async () => {
                 await axios.get('https://argenisneira.pythonanywhere.com/reset_buzz')
+        }
+        //show Wrong
+        const showWrong = async () => {
+                setDisableWrong(!disableWrong)
+                await axios.get('https://argenisneira.pythonanywhere.com/wrong')
         }
 
         return <div className="form-style-5">
@@ -154,9 +160,15 @@ const Database = () => {
                         </Row>
                         <br></br>
                         <Row>
-                                <button type="button" onClick={resetBuzz} style={{ backgroundColor: "#fd7e14" }}>
-                                        RESET BUZZ
-                                </button>
+                                <Col>
+                                        <button type="button" onClick={showWrong} style={disableWrong ? { backgroundColor: "#808080", color: "white" } : { backgroundColor: "#ed4337", color: "white" }} >
+                                                Wrong!
+                                        </button>
+                                </Col>
+                                <Col>
+                                        <button type="button" onClick={resetBuzz} style={{ backgroundColor: "#fd7e14", color: "white" }}>
+                                                RESET BUZZ
+                                        </button></Col>
                         </Row>
                         <br></br>
                         <Row>

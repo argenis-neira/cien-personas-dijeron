@@ -8,6 +8,7 @@ const Game = () => {
   const [values, setValues] = useState([])
   const [buzz, setBuzz] = useState("") //se envia el nombre de la persona
   const [firstBuzz, setFirstBuzz] = useState("")
+  const [showWrong, setShowWrong] = useState(false)
 
   useEffect(() => {
 
@@ -17,6 +18,7 @@ const Game = () => {
         // console.log(response.data)
         setValues(response.data.values)
         setFirstBuzz(JSON.parse(response.data.first).usuario)
+        setShowWrong(response.data.wrong)
       }
       catch { }
     }
@@ -50,7 +52,8 @@ const Game = () => {
 
   return (
     <div className="custom-body">
-      <p style={{ color: "white", paddingTop: "2rem" }}>Componente se ejecuta cada 3 segundos hace un request al api, cuidado</p>
+      {showWrong && <span className="wrong">&#9746;</span>}
+      <p style={{ color: "white", paddingTop: "2rem" }}>Hola Mundo</p>
       <Row>
         <Col><input type="text" onChange={(e) => setBuzz(e.target.value)} />
           <button type="button" style={{ marginLeft: "5px" }} onClick={handleBuzz}>BUZZ</button>
@@ -65,7 +68,7 @@ const Game = () => {
             <Col key={index} md="6">
               {elemento.show ?
                 <Row>
-                  <Col md={10}>
+                  <Col md={8}>
                     <div className="example voltear" style={{ color: "white" }} id={`div-${indice * 2 + index + 1}`}>{elemento.word}</div>
                   </Col>
                   <Col md={2}>
@@ -74,7 +77,7 @@ const Game = () => {
                 </Row>
                 :
                 <Row>
-                  <Col md={10}>
+                  <Col md={8}>
                     <div className="example" style={{ paddingRight: "100px", paddingLeft: "100px", }} id={`div-${indice * 2 + index + 1}`}>{indice * 2 + index + 1}</div>
                   </Col>
                   <Col md={2}>
