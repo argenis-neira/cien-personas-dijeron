@@ -51,15 +51,18 @@ const Game = () => {
 
 
   return (
-    <div className="custom-body">
-      {showWrong && <span className="wrong">&#9746;</span>}
-      <p style={{ color: "white", paddingTop: "2rem" }}>Hola Mundo</p>
+    <div className="another-custom-body">
+      <div style={{ zIndex: 1, position: "absolute", width: "100%" }}>
+        {Array.from({ length: showWrong }, (_, index) => index + 1).map((fila, index) => (<span className="wrong">&#9746;</span>))}
+      </div>
+      <Row>
+        <Col>
+          <div className="miDiv">{firstBuzz == "" ? <div>&nbsp;</div> : firstBuzz}</div>
+        </Col>
+      </Row>
       <Row>
         <Col><input type="text" onChange={(e) => setBuzz(e.target.value)} />
           <button type="button" style={{ marginLeft: "5px" }} onClick={handleBuzz}>BUZZ</button>
-        </Col>
-        <Col>
-          <div className="miDiv">{firstBuzz}</div>
         </Col>
       </Row>
       {filas.map((fila, indice) => (

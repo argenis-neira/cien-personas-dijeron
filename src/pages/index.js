@@ -14,7 +14,9 @@ const Database = () => {
 
         //useStates
         const [camposExtras, setCamposExtras] = useState([])
-        const [disableWrong, setDisableWrong] = useState(false)
+        const [disableWrong1, setDisableWrong1] = useState(false)
+        const [disableWrong2, setDisableWrong2] = useState(false)
+        const [disableWrong3, setDisableWrong3] = useState(false)
 
         const onSubmit = async values => {
                 console.log('form data', values)
@@ -82,9 +84,19 @@ const Database = () => {
                 await axios.get('https://argenisneira.pythonanywhere.com/reset_buzz')
         }
         //show Wrong
-        const showWrong = async () => {
-                setDisableWrong(!disableWrong)
-                await axios.get('https://argenisneira.pythonanywhere.com/wrong')
+        const showWrong = async (number) => {
+                switch (number) {
+                        case 1:
+                                setDisableWrong1(!disableWrong1)
+                                break;
+                        case 2:
+                                setDisableWrong2(!disableWrong2)
+                                break;
+                        case 3:
+                                setDisableWrong3(!disableWrong3)
+                                break;
+                }
+                await axios.post('https://argenisneira.pythonanywhere.com/wrong', { wrong: (!disableWrong1 && !disableWrong2 && !disableWrong3) ? number : 0 })
         }
 
         return <div className="form-style-5">
@@ -161,8 +173,18 @@ const Database = () => {
                         <br></br>
                         <Row>
                                 <Col>
-                                        <button type="button" onClick={showWrong} style={disableWrong ? { backgroundColor: "#808080", color: "white" } : { backgroundColor: "#ed4337", color: "white" }} >
-                                                Wrong!
+                                        <button type="button" onClick={() => showWrong(1)} style={disableWrong1 ? { backgroundColor: "#808080", color: "white" } : { backgroundColor: "#ed4337", color: "white" }} >
+                                                First Wrong!
+                                        </button>
+                                </Col>
+                                <Col>
+                                        <button type="button" onClick={() => showWrong(2)} style={disableWrong2 ? { backgroundColor: "#808080", color: "white" } : { backgroundColor: "#ed4337", color: "white" }} >
+                                                Second Wrong!
+                                        </button>
+                                </Col>
+                                <Col>
+                                        <button type="button" onClick={() => showWrong(3)} style={disableWrong3 ? { backgroundColor: "#808080", color: "white" } : { backgroundColor: "#ed4337", color: "white" }} >
+                                                Third Wrong!
                                         </button>
                                 </Col>
                                 <Col>

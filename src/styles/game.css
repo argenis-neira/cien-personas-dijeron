@@ -52,6 +52,14 @@
   );
   text-align: center;
 }
+.another-custom-body {
+  width: 100% !important;
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+  text-align: center;
+  background-color: #f5eee8;
+}
 @keyframes sway {
   0% {
     transform: rotate(0);
@@ -99,131 +107,131 @@
   margin: 34px 0;
   animation: sway 5s linear infinite;
   transform-origin: 50% -32px;
-  background: linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
-    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
-    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
-    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%),
+  background: linear-gradient(to right, #9ab2d4 0%, #9ab2d4 100%),
+    linear-gradient(to right, #9ab2d4 0%, #9ab2d4 100%),
+    linear-gradient(to right, #9ab2d4 0%, #9ab2d4 100%),
+    linear-gradient(to right, #9ab2d4 0%, #9ab2d4 100%),
     radial-gradient(
       circle at 100% 100%,
-      #ca2e55 0%,
-      #ca2e55 44%,
+      #9ab2d4 0%,
+      #9ab2d4 44%,
       #fff 46%,
       #fff 55%,
-      #ca2e55 57%,
-      #ca2e55 70%,
+      #9ab2d4 57%,
+      #9ab2d4 70%,
       transparent 72%,
       transparent 100%
     ),
     radial-gradient(
       circle at 0 100%,
-      #ca2e55 0%,
-      #ca2e55 44%,
+      #9ab2d4 0%,
+      #9ab2d4 44%,
       #fff 46%,
       #fff 55%,
-      #ca2e55 57%,
-      #ca2e55 70%,
+      #9ab2d4 57%,
+      #9ab2d4 70%,
       transparent 72%,
       transparent 100%
     ),
     radial-gradient(
       circle at 0 0,
-      #ca2e55 0%,
-      #ca2e55 44%,
+      #9ab2d4 0%,
+      #9ab2d4 44%,
       #fff 46%,
       #fff 55%,
-      #ca2e55 57%,
-      #ca2e55 70%,
+      #9ab2d4 57%,
+      #9ab2d4 70%,
       transparent 72%,
       transparent 100%
     ),
     radial-gradient(
       circle at 100% 0,
-      #ca2e55 0%,
-      #ca2e55 44%,
+      #9ab2d4 0%,
+      #9ab2d4 44%,
       #fff 46%,
       #fff 55%,
-      #ca2e55 57%,
-      #ca2e55 70%,
+      #9ab2d4 57%,
+      #9ab2d4 70%,
       transparent 72%,
       transparent 100%
     ),
     linear-gradient(
       to top,
-      #ca2e55 0%,
-      #ca2e55 63%,
+      #9ab2d4 0%,
+      #9ab2d4 63%,
       #fff 65%,
       #fff 78%,
-      #ca2e55 80%,
-      #ca2e55 100%
+      #9ab2d4 80%,
+      #9ab2d4 100%
     ),
     linear-gradient(
       to bottom,
-      #ca2e55 0%,
-      #ca2e55 63%,
+      #9ab2d4 0%,
+      #9ab2d4 63%,
       #fff 65%,
       #fff 78%,
-      #ca2e55 80%,
-      #ca2e55 100%
+      #9ab2d4 80%,
+      #9ab2d4 100%
     ),
     linear-gradient(
       to left,
-      #ca2e55 0%,
-      #ca2e55 63%,
+      #9ab2d4 0%,
+      #9ab2d4 63%,
       #fff 65%,
       #fff 78%,
-      #ca2e55 80%,
-      #ca2e55 100%
+      #9ab2d4 80%,
+      #9ab2d4 100%
     ),
     linear-gradient(
       to left,
-      #ca2e55 0%,
-      #ca2e55 63%,
+      #9ab2d4 0%,
+      #9ab2d4 63%,
       #fff 65%,
       #fff 78%,
-      #ca2e55 80%,
-      #ca2e55 100%
+      #9ab2d4 80%,
+      #9ab2d4 100%
     ),
     linear-gradient(
       to right,
-      #ca2e55 0%,
-      #ca2e55 63%,
+      #9ab2d4 0%,
+      #9ab2d4 63%,
       #fff 65%,
       #fff 78%,
-      #ca2e55 80%,
-      #ca2e55 100%
+      #9ab2d4 80%,
+      #9ab2d4 100%
     ),
     linear-gradient(
       to right,
-      #ca2e55 0%,
-      #ca2e55 63%,
+      #9ab2d4 0%,
+      #9ab2d4 63%,
       #fff 65%,
       #fff 78%,
-      #ca2e55 80%,
-      #ca2e55 100%
+      #9ab2d4 80%,
+      #9ab2d4 100%
     ),
     radial-gradient(
       circle at 0 50%,
       transparent 0%,
       transparent 30%,
-      #ca2e55 32%,
-      #ca2e55 42%,
+      #9ab2d4 32%,
+      #9ab2d4 42%,
       #fff 44%,
       #fff 48%,
-      #ca2e55 50%,
-      #ca2e55 100%
+      #9ab2d4 50%,
+      #9ab2d4 100%
     ),
     radial-gradient(
       circle at 100% 50%,
       transparent 0%,
       transparent 30%,
-      #ca2e55 32%,
-      #ca2e55 42%,
+      #9ab2d4 32%,
+      #9ab2d4 42%,
       #fff 44%,
       #fff 48%,
-      #ca2e55 50%,
-      #ca2e55 100%
+      #9ab2d4 50%,
+      #9ab2d4 100%
     ),
-    linear-gradient(to right, #ca2e55 0%, #ca2e55 100%);
+    linear-gradient(to right, #9ab2d4 0%, #9ab2d4 100%);
   background-size: 3px 3px, 3px 3px, 3px 3px, 3px 3px, 16px 16px, 16px 16px,
     16px 16px, 16px 16px, calc(100% - 32px + 4px) 16px,
     calc(100% - 32px + 4px) 16px, 16px calc(50% - 32px), 16px calc(50% - 32px),
@@ -248,7 +256,7 @@
     to right,
     transparent 0%,
     transparent 13%,
-    #ca2e55 15%,
+    #9ab2d4 15%,
     #fff 17%,
     #fff 100%
   );
@@ -266,7 +274,7 @@
     to left,
     transparent 0%,
     transparent 13%,
-    #ca2e55 15%,
+    #9ab2d4 15%,
     #fff 17%,
     #fff 100%
   );
@@ -321,7 +329,7 @@
 }
 
 .sketchy-opaco {
-  background-color: #666161;
+  background-color: #cdbcdb;
 }
 
 .miDiv {
@@ -329,7 +337,9 @@
   color: rgb(71, 92, 185);
   box-shadow: 0px 0px 5px 0px #333 inset;
   text-shadow: 1px 1px 1px rgb(0, 0, 0, 0.3);
-  width: 15rem;
+  display: inline-block;
+  width: 250px;
+  margin: 10px 10px;
   font-size: 20px;
   border: 3px solid transparent;
   background-color: white;
@@ -368,9 +378,6 @@
 }
 
 .wrong {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
   font-size: 25rem;
   z-index: 1;
