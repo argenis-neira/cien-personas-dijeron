@@ -95,6 +95,8 @@ const Database = () => {
                         case 3:
                                 setDisableWrong3(!disableWrong3)
                                 break;
+                        default:
+                                break;
                 }
                 await axios.post('https://argenisneira.pythonanywhere.com/wrong', { wrong: (!disableWrong1 && !disableWrong2 && !disableWrong3) ? number : 0 })
         }

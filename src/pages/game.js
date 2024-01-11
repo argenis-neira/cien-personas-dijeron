@@ -47,7 +47,7 @@ const Game = () => {
 
   const handleText = async (value) => {
     setBuzz(value)
-    if (value != "") setIsEmpty(true)
+    if (value !== "") setIsEmpty(true)
     else setIsEmpty(false)
 
   }
@@ -70,7 +70,7 @@ const Game = () => {
       </div>
       <Row>
         <Col>
-          <div className="miDiv">{firstBuzz == "" ? <div>&nbsp;</div> : firstBuzz}</div>
+          <div className="miDiv">{firstBuzz === "" ? <div>&nbsp;</div> : firstBuzz}</div>
         </Col>
       </Row>
       <Row>
