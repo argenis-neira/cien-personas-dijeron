@@ -9,6 +9,8 @@ const Game = () => {
   const [buzz, setBuzz] = useState("") //se envia el nombre de la persona
   const [firstBuzz, setFirstBuzz] = useState("")
   const [showWrong, setShowWrong] = useState(false)
+  const [animate, setAnimate] = useState(false)
+  const [isEmpty, setIsEmpty] = useState(false)
 
   useEffect(() => {
 
@@ -43,8 +45,19 @@ const Game = () => {
 
   const filas = dividirEnFilas(values, 2);
 
+  const handleText = async (value) => {
+    setBuzz(value)
+    if (value != "") setIsEmpty(true)
+    else setIsEmpty(false)
+
+  }
+
   //handleBuzz
   const handleBuzz = async () => {
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 700);
     await axios.post('https://argenisneira.pythonanywhere.com/buzz', { usuario: buzz })
   }
 
@@ -61,9 +74,16 @@ const Game = () => {
         </Col>
       </Row>
       <Row>
-        <Col><input type="text" onChange={(e) => setBuzz(e.target.value)} />
-          <button type="button" style={{ marginLeft: "5px" }} onClick={handleBuzz}>BUZZ</button>
+        <Col md={7}>
+          <div className="Input text-right">
+            <input type="text" className="Input-text" placeholder="Your nickname" onChange={(e) => handleText(e.target.value)} />
+          </div>
         </Col>
+        {isEmpty
+          &&
+          <Col md={2} style={{ display: "flex", justifyContent: "start" }}>
+            <button type="button" className={animate ? "bubbly-button animate" : "bubbly-button"} style={{ marginLeft: "5px" }} onClick={handleBuzz}>BUZZ</button>
+          </Col>}
       </Row>
       {filas.map((fila, indice) => (
         <Row key={indice}>
