@@ -74,14 +74,14 @@ const Game = () => {
         </Col>
       </Row>
       <Row>
-        <Col md={7}>
-          <div className="Input text-right">
+        <Col md={7} sm={7} xs={7}>
+          <div className="Input">
             <input type="text" className="Input-text" placeholder="Your nickname" onChange={(e) => handleText(e.target.value)} />
           </div>
         </Col>
         {isEmpty
           &&
-          <Col md={2} style={{ display: "flex", justifyContent: "start" }}>
+          <Col md={2} sm={2} xs={2} style={{ display: "flex", justifyContent: "start" }}>
             <button type="button" className={animate ? "bubbly-button animate" : "bubbly-button"} style={{ marginLeft: "5px" }} onClick={handleBuzz}>BUZZ</button>
           </Col>}
       </Row>
@@ -91,19 +91,19 @@ const Game = () => {
             <Col key={index} md="6">
               {elemento.show ?
                 <Row>
-                  <Col md={8}>
+                  <Col md={8} sm={8} xs={8}>
                     <div className="example voltear" style={{ color: "white" }} id={`div-${indice * 2 + index + 1}`}>{elemento.word}</div>
                   </Col>
-                  <Col md={2}>
+                  <Col md={2} sm={2} xs={2}>
                     <div className="sketchy">{elemento.score}</div>
                   </Col>
                 </Row>
                 :
                 <Row>
-                  <Col md={8}>
+                  <Col md={8} sm={8} xs={8}>
                     <div className="example" style={{ paddingRight: "100px", paddingLeft: "100px", }} id={`div-${indice * 2 + index + 1}`}>{indice * 2 + index + 1}</div>
                   </Col>
-                  <Col md={2}>
+                  <Col md={2} sm={2} xs={2}>
                     <div className="sketchy sketchy-opaco"></div>
                   </Col>
                 </Row>
@@ -112,6 +112,23 @@ const Game = () => {
           ))}
         </Row>
       ))}
+      <style>
+        {`body {
+  width: 100% !important;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+  text-align: center;
+  background-color: #32dbf0;
+  background-image: linear-gradient(
+      rgba(50, 219, 240, 0.9),
+      rgba(50, 219, 240, 0.9)
+    ),
+    url("/static/media/fondo-azul-grunge-abstracto_107146-184.1e0ebc62b14e82a0667d.avif");
+  background-size: contain;
+  background-repeat: repeat;
+}`}
+      </style>
     </div>
   );
 }
