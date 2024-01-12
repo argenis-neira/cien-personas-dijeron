@@ -371,6 +371,24 @@
   }
 }
 
+.divWrong {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 15%;
+  left: 0%;
+}
+.divWrong::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo semitransparente */
+  z-index: -1; /* Colócalo detrás del contenido centrado */
+}
+
 .wrong {
   transform: translate(-50%, -50%);
   font-size: 25rem;
@@ -523,11 +541,20 @@
   .Input-text {
     width: 20rem !important;
   }
+  .wrong {
+    font-size: 15rem;
+  }
+  .divWrong {
+    top: 30%;
+  }
 }
 @media (max-width: 576px) {
   .Input-text {
     width: 12rem !important;
     font-size: 1.5rem;
+  }
+  .wrong {
+    font-size: 10rem;
   }
 }
 

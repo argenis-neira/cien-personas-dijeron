@@ -65,7 +65,7 @@ const Game = () => {
 
   return (
     <div className="another-custom-body">
-      <div style={{ zIndex: 1, position: "absolute", width: "100%" }}>
+      <div className={showWrong != 0 ? "divWrong" : ""}>
         {Array.from({ length: showWrong }, (_, index) => index + 1).map((fila, index) => (<span className="wrong">&#9746;</span>))}
       </div>
       <Row>

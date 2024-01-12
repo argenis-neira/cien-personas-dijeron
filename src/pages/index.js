@@ -106,34 +106,34 @@ const Database = () => {
                 <form onSubmit={formik.handleSubmit}>
                         <Row>
 
-                                <Col md={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                <Col md={2} sm={2} xs={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                         <div className="checkbox-wrapper-8">
                                                 <input type="checkbox" className="tgl tgl-skewed" id="1" onClick={() => (formik.setFieldValue("show1", !formik.values.show1))} />
                                                 <label htmlFor="1" className="tgl-btn" data-tg-off="Hidden" data-tg-on="Visible"></label>
                                         </div>
                                 </Col>
-                                <Col md={4}>
+                                <Col md={6} sm={6} xs={6}>
                                         <label htmlFor="word1">Word</label>
                                         <input type='text' id="word1" name="word1" onChange={formik.handleChange} ></input>
                                 </Col>
-                                <Col md={4}>
+                                <Col md={2} sm={2} xs={2}>
                                         <label htmlFor="score1">Score</label>
                                         <input type='text' id="score1" name="score1" onChange={formik.handleChange}></input>
                                 </Col>
 
                         </Row>
                         <Row>
-                                <Col md={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                <Col md={2} sm={2} xs={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                         <div className="checkbox-wrapper-8">
                                                 <input type="checkbox" className="tgl tgl-skewed" id="2" onClick={() => (formik.setFieldValue("show2", !formik.values.show2))} />
                                                 <label htmlFor="2" className="tgl-btn" data-tg-off="Hidden" data-tg-on="Visible"></label>
                                         </div>
                                 </Col>
-                                <Col md={4}>
+                                <Col md={6} sm={6} xs={6}>
                                         <label htmlFor="word2">Word</label>
                                         <input type='text' id="word2" name="word2" onChange={formik.handleChange} ></input>
                                 </Col>
-                                <Col md={4}>
+                                <Col md={2} sm={2} xs={2}>
                                         <label htmlFor="score2">Score</label>
                                         <input type='text' id="score2" name="score2" onChange={formik.handleChange}></input>
                                 </Col>
@@ -143,24 +143,24 @@ const Database = () => {
                         {camposExtras.map((campo, index) => (
                                 <div key={index}>
                                         <Row>
-                                                <Col md={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                                                <Col md={2} sm={2} xs={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                                         <div className="checkbox-wrapper-8">
                                                                 <input id={index + 3} type="checkbox" className="tgl tgl-skewed" onClick={() => (formik.setFieldValue(`show${index + 3}`, !formik.values[`show${index + 3}`]))}>
                                                                 </input>
                                                                 <label className="tgl-btn" data-tg-off="Hidden" data-tg-on="Visible" htmlFor={index + 3}></label>
                                                         </div>
                                                 </Col>
-                                                <Col md={4}>
+                                                <Col md={6} sm={6} xs={6}>
                                                         <label htmlFor={"word" + (index + 3)}>Word</label>
                                                         <input type='text' id={"word" + (index + 3)} name={"word" + (index + 3)} onChange={formik.handleChange} value={formik.values[`word${index + 3}`] || ""}></input>
                                                 </Col>
-                                                <Col md={4}>
+                                                <Col md={2} sm={2} xs={2}>
                                                         <label htmlFor={"score" + (index + 3)}>Score</label>
                                                         <input type='text' id={"score" + (index + 3)} name={"score" + (index + 3)} onChange={formik.handleChange} value={formik.values[`score${index + 3}`] || ""}></input>
                                                 </Col>
-                                                <Col md={2}>
+                                                <Col md={2} sm={2} xs={2}>
                                                         <button type="button" className="remove" onClick={() => handleRemove(index)}>
-                                                                Remove
+                                                                -
                                                         </button>
                                                 </Col>
                                         </Row>
@@ -168,9 +168,11 @@ const Database = () => {
                         ))}
 
                         <Row>
-                                <button type="button" onClick={handleAdd}>
-                                        Add
-                                </button>
+                                <div style={{ display: "flex", justifyContent: "center" }}>
+                                        <button type="button" style={{ backgroundColor: "hsl(150 100% 69%)", fontWeight: "bolder", padding: "0px 10px" }} onClick={handleAdd}>
+                                                +
+                                        </button>
+                                </div>
                         </Row>
                         <br></br>
                         <Row>
