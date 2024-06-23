@@ -66,7 +66,6 @@ const Database = () => {
         }
 
         const handleAdd = async (word = "", score = "") => {
-                console.log(refCamposExtras.current)
                 setCamposExtras([...refCamposExtras.current, ''])
                 refCamposExtras.current = [...refCamposExtras.current, '']
                 formik.setFieldValue(`word${refCamposExtras.current.length + 2}`, word)
@@ -78,7 +77,8 @@ const Database = () => {
                 const nuevosCampos = [...refCamposExtras.current];
                 nuevosCampos.splice(index, 1);
                 setCamposExtras(nuevosCampos)
-                formik.setValues(eliminarCampo(formik.values, index + 3))
+                refCamposExtras.current = nuevosCampos
+                formik.setValues(eliminarCampo(formik.values, index + 2))
         }
 
         const eliminarCampo = (objeto, indice) => {
