@@ -107,11 +107,6 @@
   font-weight: bolder;
   padding: 0px 15px;
 }
-.show {
-  background-color: #62eca0;
-  color: #f4f7f8;
-  margin-top: 37px;
-}
 
 :root {
   --glow-color: hsl(186 100% 69%);

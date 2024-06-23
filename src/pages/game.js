@@ -8,7 +8,7 @@ const Game = () => {
   const [values, setValues] = useState([])
   const [buzz, setBuzz] = useState("") //se envia el nombre de la persona
   const [firstBuzz, setFirstBuzz] = useState("")
-  const [showWrong, setShowWrong] = useState(false)
+  const [showWrong, setShowWrong] = useState(0)
   const [animate, setAnimate] = useState(false)
   const [isEmpty, setIsEmpty] = useState(false)
 
@@ -16,7 +16,7 @@ const Game = () => {
 
     const getData = async () => {
       try {
-        const response = await axios.get('https://argenisneira.pythonanywhere.com/get_values');
+        const response = await axios.get(process.env.REACT_APP_API_URL + '/get_values');
         // console.log(response.data)
         setValues(response.data.values)
         setFirstBuzz(JSON.parse(response.data.first).usuario)
@@ -58,15 +58,15 @@ const Game = () => {
     setTimeout(() => {
       setAnimate(false);
     }, 700);
-    await axios.post('https://argenisneira.pythonanywhere.com/buzz', { usuario: buzz })
+    await axios.post(process.env.REACT_APP_API_URL + '/buzz', { usuario: buzz })
   }
 
 
 
   return (
     <div className="another-custom-body">
-      <div className={showWrong != 0 ? "divWrong" : ""}>
-        {Array.from({ length: showWrong }, (_, index) => index + 1).map((fila, index) => (<span className="wrong">&#9746;</span>))}
+      <div className={+showWrong !== 0 ? "divWrong" : ""}>
+        {Array.from({ length: showWrong }, (_, index) => index + 1).map((fila, index) => (<span className="wrong" key={index}>&#9746;</span>))}
       </div>
       <Row>
         <Col>

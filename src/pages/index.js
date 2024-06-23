@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useFormik } from 'formik';
 import { Col, Row } from 'reactstrap';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-// import NewElement from "./components/newElement";
+import ViewAllGames from "./components/viewAllGames";
 
 const validate = values => {
         let errors = {}
@@ -14,14 +15,21 @@ const Database = () => {
 
         //useStates
         const [camposExtras, setCamposExtras] = useState([])
+        let refCamposExtras = useRef([])
         const [disableWrong1, setDisableWrong1] = useState(false)
         const [disableWrong2, setDisableWrong2] = useState(false)
         const [disableWrong3, setDisableWrong3] = useState(false)
 
+        //modal states
+        const [show, setShow] = useState(false);
+
+        const handleClose = () => setShow(false);
+        const handleShow = () => setShow(true);
+
         const onSubmit = async values => {
                 console.log('form data', values)
                 //debi enviar los valores como un objecto por cada 3 elementos, y no de manera unica, esto se puede mejorarr despues
-                await axios.post('https://argenisneira.pythonanywhere.com/save', values);
+                await axios.post(process.env.REACT_APP_API_URL + '/save', values);
         }
 
         //initial values
@@ -42,17 +50,32 @@ const Database = () => {
                 validate,
         })
 
-        //useEffects
+        const selectGame = async (data) => {
+                let element_count = Object.keys(data).length / 3
+                formik.setFieldValue(`word1`, data.word1)
+                formik.setFieldValue(`score1`, data.score1)
+                formik.setFieldValue(`show1`, false)
+                formik.setFieldValue(`word2`, data.word2)
+                formik.setFieldValue(`score2`, data.score2)
+                formik.setFieldValue(`show2`, false)
+                for (let i = 2; i < element_count; i++) {
+                        console.log("t")
+                        console.log(data[`word${i + 1}`])
+                        await handleAdd(data[`word${i + 1}`], data[`score${i + 1}`])
+                }
+        }
 
-        const handleAdd = () => {
-                setCamposExtras([...camposExtras, ''])
-                formik.setFieldValue(`word${camposExtras.length + 3}`, '')
-                formik.setFieldValue(`score${camposExtras.length + 3}`, '')
-                formik.setFieldValue(`show${camposExtras.length + 3}`, false)
+        const handleAdd = async (word = "", score = "") => {
+                console.log(refCamposExtras.current)
+                setCamposExtras([...refCamposExtras.current, ''])
+                refCamposExtras.current = [...refCamposExtras.current, '']
+                formik.setFieldValue(`word${refCamposExtras.current.length + 2}`, word)
+                formik.setFieldValue(`score${refCamposExtras.current.length + 2}`, score)
+                formik.setFieldValue(`show${refCamposExtras.current.length + 2}`, false)
         }
 
         const handleRemove = (index) => {
-                const nuevosCampos = [...camposExtras];
+                const nuevosCampos = [...refCamposExtras.current];
                 nuevosCampos.splice(index, 1);
                 setCamposExtras(nuevosCampos)
                 formik.setValues(eliminarCampo(formik.values, index + 3))
@@ -81,7 +104,7 @@ const Database = () => {
 
         //handle reset
         const resetBuzz = async () => {
-                await axios.get('https://argenisneira.pythonanywhere.com/reset_buzz')
+                await axios.get(process.env.REACT_APP_API_URL + '/reset_buzz')
         }
         //show Wrong
         const showWrong = async (number) => {
@@ -98,44 +121,49 @@ const Database = () => {
                         default:
                                 break;
                 }
-                await axios.post('https://argenisneira.pythonanywhere.com/wrong', { wrong: (!disableWrong1 && !disableWrong2 && !disableWrong3) ? number : 0 })
+                await axios.post(process.env.REACT_APP_API_URL + '/wrong', { wrong: (!disableWrong1 && !disableWrong2 && !disableWrong3) ? number : 0 })
         }
 
         return <div className="form-style-5">
-                <Row>Please input the values of the game</Row>
+                <Row style={{ paddingBottom: "2rem" }}><Col>Please input the values of the game</Col>
+                        <Col>  <Button variant="primary" onClick={handleShow}>
+                                Launch demo modal
+                        </Button></Col>
+                        <ViewAllGames show={show} handleClose={handleClose} selectGame={selectGame}></ViewAllGames>
+                </Row>
                 <form onSubmit={formik.handleSubmit}>
                         <Row>
 
                                 <Col md={2} sm={2} xs={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                         <div className="checkbox-wrapper-8">
-                                                <input type="checkbox" className="tgl tgl-skewed" id="1" onClick={() => (formik.setFieldValue("show1", !formik.values.show1))} />
+                                                <input type="checkbox" className="tgl tgl-skewed" id="1" onChange={() => (formik.setFieldValue("show1", !formik.values.show1))} checked={formik.values.show1} />
                                                 <label htmlFor="1" className="tgl-btn" data-tg-off="Hidden" data-tg-on="Visible"></label>
                                         </div>
                                 </Col>
                                 <Col md={6} sm={6} xs={6}>
                                         <label htmlFor="word1">Word</label>
-                                        <input type='text' id="word1" name="word1" onChange={formik.handleChange} ></input>
+                                        <input type='text' id="word1" name="word1" onChange={formik.handleChange} value={formik.values.word1}></input>
                                 </Col>
                                 <Col md={2} sm={2} xs={2}>
                                         <label htmlFor="score1">Score</label>
-                                        <input type='text' id="score1" name="score1" onChange={formik.handleChange}></input>
+                                        <input type='text' id="score1" name="score1" onChange={formik.handleChange} value={formik.values.score1}></input>
                                 </Col>
 
                         </Row>
                         <Row>
                                 <Col md={2} sm={2} xs={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                         <div className="checkbox-wrapper-8">
-                                                <input type="checkbox" className="tgl tgl-skewed" id="2" onClick={() => (formik.setFieldValue("show2", !formik.values.show2))} />
+                                                <input type="checkbox" className="tgl tgl-skewed" id="2" onChange={() => (formik.setFieldValue("show2", !formik.values.show2))} checked={formik.values.show2} />
                                                 <label htmlFor="2" className="tgl-btn" data-tg-off="Hidden" data-tg-on="Visible"></label>
                                         </div>
                                 </Col>
                                 <Col md={6} sm={6} xs={6}>
                                         <label htmlFor="word2">Word</label>
-                                        <input type='text' id="word2" name="word2" onChange={formik.handleChange} ></input>
+                                        <input type='text' id="word2" name="word2" onChange={formik.handleChange} value={formik.values.word2}></input>
                                 </Col>
                                 <Col md={2} sm={2} xs={2}>
                                         <label htmlFor="score2">Score</label>
-                                        <input type='text' id="score2" name="score2" onChange={formik.handleChange}></input>
+                                        <input type='text' id="score2" name="score2" onChange={formik.handleChange} value={formik.values.score2}></input>
                                 </Col>
                                 <Col md={2}></Col>
                         </Row>
@@ -145,7 +173,7 @@ const Database = () => {
                                         <Row>
                                                 <Col md={2} sm={2} xs={2} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                                                         <div className="checkbox-wrapper-8">
-                                                                <input id={index + 3} type="checkbox" className="tgl tgl-skewed" onClick={() => (formik.setFieldValue(`show${index + 3}`, !formik.values[`show${index + 3}`]))}>
+                                                                <input id={index + 3} type="checkbox" className="tgl tgl-skewed" onChange={() => (formik.setFieldValue(`show${index + 3}`, !formik.values[`show${index + 3}`]))} checked={formik.values[`show${index + 3}`]}>
                                                                 </input>
                                                                 <label className="tgl-btn" data-tg-off="Hidden" data-tg-on="Visible" htmlFor={index + 3}></label>
                                                         </div>
@@ -169,7 +197,7 @@ const Database = () => {
 
                         <Row>
                                 <div style={{ display: "flex", justifyContent: "center" }}>
-                                        <button type="button" style={{ backgroundColor: "hsl(150 100% 69%)", fontWeight: "bolder", padding: "0px 10px" }} onClick={handleAdd}>
+                                        <button type="button" style={{ backgroundColor: "hsl(150 100% 69%)", fontWeight: "bolder", padding: "0px 10px" }} onClick={() => handleAdd()}>
                                                 +
                                         </button>
                                 </div>
