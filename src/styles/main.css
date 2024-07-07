@@ -1,14 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
 
 .form-style-5 {
-  max-width: 700px;
-  padding: 10px 20px;
-  background: black;
-  margin: 10px auto;
-  padding: 5rem 20px;
-  border-radius: 8px;
+  /* max-width: 1000px; */
+  /* padding: 10px 20px; */
+  /* background: black; */
+  /* margin: 10px auto; */
+  /* padding: 7rem 10px; */
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
+  /* min-width: 100px; */
 }
 .form-style-5 fieldset {
   border: none;
@@ -118,20 +118,14 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
+.scrollbar {
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE 10+ */
+  scrollbar-width: none; /* Firefox */
 }
 
-body {
-  min-height: 100vh;
-  /* display: flex; */
-  justify-content: center;
-  align-items: center;
-  background: black;
-  overflow-y: auto;
+.scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .glowing-btn {

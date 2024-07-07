@@ -119,7 +119,6 @@ const Game = () => {
   position: relative;
   z-index: 0;
   text-align: center;
-  background-color: #32dbf0;
   background-image: linear-gradient(
       rgba(50, 219, 240, 0.9),
       rgba(50, 219, 240, 0.9)
